@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <div class="card">
+        <div class="img-con">
+            <img src="{{ url_for('get_image', filename=propertyInfo.photoFileName) }}" alt="{{ propertyInfo.title }}">
+        </div>
+        <div class="card-info">
+            <h2>{{ propertyInfo.title}}</h2>
+            
+            <div>
+                <span class="tag price">{{ propertyInfo.price }}</span>
+                <span class="tag type">{{ propertyInfo.propertyType }}</span>
+            </div>
+            <div  class="desc">
+                <p>
+                    {{ propertyInfo.description }}
+                </p>
+            </div>
+            <div class="rooms">
+                <div class="roomInfo">
+                    {{ propertyInfo.noBedrooms }} Bedrooms
+                </div>
+                <div class="roomInfo">
+                    {{ propertyInfo.noBathrooms }} Bathrooms
+                </div>
+            </div>
+            {{ propertyInfo.location }}
+            <div>
+                <button class="cardButton">Email Realtor</button> 
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

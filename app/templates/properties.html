@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1 class="page-header">Properties</h1>
+{% include 'flash_messages.html' %}
+<div class="properties">
+    {% for property in propertiesList %}
+    <div class="property">
+        <img src="{{ url_for('get_image', filename=property.photoFileName) }}" alt="{{ property.title }}">
+        <div class='propertyInfo'>
+            <span class="title">{{ property.title }}</span>
+            
+            <div class="location">
+                {{ property.location }}
+            </div>
+            <span class="tag price">{{ property.price }}</span>
+        </div>
+        <div class='button'>
+            <a href="{{ url_for('get_property_info',propertyid=property.id) }}">View Property</a>
+        </div>
+        
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
